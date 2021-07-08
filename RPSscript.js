@@ -50,11 +50,15 @@ function playRound(playerSelection, computerSelection){
     }
 }
 
+/*
 function game(){
-    
+    for(var i=0; i<5; i++){
+        playRound(playerSelection, computerSelection);
+    }
 }
+*/
 
-const playerSelection = "ROCK";
+const playerSelection = window.prompt("Your Move");
 const computerSelection = computerPlay();
 
 console.log(playRound(playerSelection, computerSelection));
