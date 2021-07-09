@@ -1,8 +1,6 @@
-//let playerSelection;
-//let computerSelection;
-
 let playerScore = 0;
 let computerScore = 0; 
+let round = 0;
 
 //Function lets the computer make a choice between rock, paper or scissors
 function computerPlay(){
@@ -14,15 +12,15 @@ function computerPlay(){
         case 1:
          return 'Paper';
         case 2:
-        return 'Scissors';
+         return 'Scissors';
     } 
 }
 
 //Function plays one round of RPS with the players input as well as the random selection created by the computer
 function playRound(playerSelection, computerSelection){
 
-    console.log(playerSelection);
-    console.log(computerSelection);
+    console.log("Your Move: " + playerSelection);
+    console.log("Computer's Move: " + computerSelection);
 
     playerSelection = playerSelection.toLowerCase();
     
@@ -53,29 +51,36 @@ function playRound(playerSelection, computerSelection){
             return "You lose, Rock beats Scissors";
         }
     }
-
 }
 
 //Function plays the game
 function game(){
 
-    const playerSelection = window.prompt("Your Move");
+    const playerSelection = prompt("Your Move");
     const computerSelection = computerPlay();
-    
-    
-    console.log(playRound(playerSelection, computerSelection))
-    
-    if(playerScore == computerScore){
-        return "Nothing Happens";
-    }
-        else if(playerScore>computerScore){
-            return "You Win";
-        }
-           else{
-            return "Computer Wins";
-           } 
-}
 
+    //console.log(playRound(playerSelection, computerSelection))
+
+    while(round<5) {
+        console.log(playRound(playerSelection, computerSelection));
+        if(round<=5){
+            round++;
+        } else{
+            break;
+        }
+    }
+
+    if(round == 5){
+        if(playerScore == computerScore){
+            return "Nothing Happens";
+        } else if(playerScore>computerScore){
+            return "You Win the game";
+        } else{
+            return "Computer Wins, take the L";
+        }
+ 
+    } 
+}
 
 //const playerSelection = window.prompt("Your Move");
 //const computerSelection = computerPlay();
@@ -85,4 +90,4 @@ function game(){
 console.log(game());
 
 console.log("Your score: " + playerScore);
-console.log("Computer score: " + computerScore);
+console.log("Computer's score: " + computerScore);
