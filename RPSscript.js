@@ -55,21 +55,17 @@ function playRound(playerSelection, computerSelection){
 
 //Function plays the game
 function game(){
-
-    const playerSelection = prompt("Your Move");
-    const computerSelection = computerPlay();
-
-    //console.log(playRound(playerSelection, computerSelection))
-
+    
+    //Plays round 5 times
     while(round<5) {
-        console.log(playRound(playerSelection, computerSelection));
-        if(round<=5){
-            round++;
-        } else{
-            break;
-        }
-    }
+        const playerSelection = prompt("Your Move");
+        const computerSelection = computerPlay();
 
+        round++;
+        console.log(playRound(playerSelection, computerSelection));
+    }
+    
+    //once 5 rounds have been reached show result
     if(round == 5){
         if(playerScore == computerScore){
             return "Nothing Happens";
@@ -78,16 +74,12 @@ function game(){
         } else{
             return "Computer Wins, take the L";
         }
- 
-    } 
+
+    }
 }
 
-//const playerSelection = window.prompt("Your Move");
-//const computerSelection = computerPlay();
-
-//console.log(playRound(playerSelection, computerSelection));
-
+//play the game
 console.log(game());
-
+//show score
 console.log("Your score: " + playerScore);
 console.log("Computer's score: " + computerScore);
