@@ -1,6 +1,19 @@
 let playerScore = 0;
 let computerScore = 0; 
 let round = 0;
+let button = document.querySelector('button');
+const buttons = document.querySelectorAll('button');
+const container = document.querySelectorAll('#container')
+
+
+//event listener function
+function clickListener(event){
+    const playerSelection = event.target.id;
+    const computerSelection = computerPlay();
+    playRound(playerSelection, computerSelection);
+}
+
+
 
 //Function lets the computer make a choice between rock, paper or scissors
 function computerPlay(){
@@ -13,7 +26,7 @@ function computerPlay(){
          return 'Paper';
         case 2:
          return 'Scissors';
-    } 
+    }
 }
 
 //Function plays one round of RPS with the players input as well as the random selection created by the computer
@@ -56,16 +69,18 @@ function playRound(playerSelection, computerSelection){
 //Function plays the game
 function game(){
     
+    
     //Plays round 5 times
-    while(round<5) {
+    //  while(round<5) {
         const playerSelection = prompt("Your Move");
         const computerSelection = computerPlay();
 
-        round++;
+    //    round++;
         console.log(playRound(playerSelection, computerSelection));
-    }
-    
+    //}
+
     //once 5 rounds have been reached show result
+    
     if(round == 5){
         if(playerScore == computerScore){
             return "Nothing Happens";
@@ -74,12 +89,13 @@ function game(){
         } else{
             return "Computer Wins, take the L";
         }
-
     }
+    
 }
 
 //play the game
 console.log(game());
+
 //show score
 console.log("Your score: " + playerScore);
 console.log("Computer's score: " + computerScore);
