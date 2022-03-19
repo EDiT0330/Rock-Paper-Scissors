@@ -5,7 +5,6 @@ let round = 0;
 let playerSelection;
 let computerSelection;
 
-
 // types of moves that can be used
 const ROCK = "rock"; 
 const PAPER = "paper"; 
@@ -17,24 +16,6 @@ function computerPlay(){
     let chooseHands = Math.floor(Math.random()*3);
     return hands[chooseHands];
 }
-
-//Function lets the computer make a choice between rock, paper or scissors
-
-//Switch case
-/* 
-function computerPlay(){
-    let pickItem = Math.floor(Math.random()*3);
-
-    switch(pickItem){
-        case 0: 
-         return 'Rock';
-        case 1:
-         return 'Paper';
-        case 2:
-         return 'Scissors';
-    }
-}
-*/
 
 //Function plays one round of RPS with the players input as well as the random selection created by the computer
 function playRound(playerSelection, computerSelection){
@@ -79,8 +60,6 @@ function game(){
     
     //Plays round 5 times
       while(round<5) {
-        //const playerSelection = prompt("Your Move");
-        const computerSelection = computerPlay();
         
         round++;
         playRound(playerSelection, computerSelection);
@@ -101,11 +80,13 @@ function game(){
 
 
 //event listeners
-const rockButton = document.getElementById('rockButton');
-const paperButton = document.getElementById('paper');
-const scissorButton = document.getElementById('scissors');
-const container = document.querySelectorAll('#container');
+const rockButton = document.querySelector('#rockButton');
+const paperButton = document.querySelector('#paper');
+const scissorButton = document.querySelector('#scissors');
+const scorePlayer = document.querySelector('#scoreP');
+const scoreComputer = document.querySelector('#scoreC');
 
+//const container = document.querySelectorAll('#container');
 
 //event listener function
 rockButton.addEventListener('click', function(){
