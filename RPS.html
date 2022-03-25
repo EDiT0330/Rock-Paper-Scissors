@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html lang="en"></html>
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style src = 'RPS.css'></style>
-    <title>Rock Paper Scissors</title>
-    
+    <link rel="stylesheet" href = "RPS.css"/>
+
+<title>Rock Paper Scissors</title>    
 </head>
 
 <body>
+
     <h2>Rock Paper Scissors</h2>
     
     <div class="scoreboard">
-        <div class="scorePlayer">Player</div>
-        <div class="scoreComputer">Computer</div>
-        <div class="scoreP">0</div>
-        <div class="scoreC">0</div>
+        <span class="scorePlayer">Player
+            <div class="playerScore">0</div>
+        </span>
+        
+        <span class="scoreComputer">Computer
+            <div class="computerScore">0</div>
+        </span>
     </div>
-    
    
-    <div id = 'container'>    
+    <div id= 'container'>    
         <button id='rockButton'>Rock</button>
         <button id='paper'>Paper</button>
         <button id='scissors'>Scissors</button>
     <div>
 
-    <script src = 'RPSscript.js'></script>
+    <script src= 'RPSscript.js'></script>
+
 </body>
 
 </html>

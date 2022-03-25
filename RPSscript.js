@@ -18,13 +18,13 @@ function computerPlay(){
 }
 
 //Function plays one round of RPS with the players input as well as the random selection created by the computer
-function playRound(playerSelection, computerSelection){
+function playRound(){
 
     console.log("Your Move: " + playerSelection);
     console.log("Computer's Move: " + computerSelection);
 
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
+    //playerSelection = playerSelection.toLowerCase();
+    //computerSelection = computerSelection.toLowerCase();
     
     if(playerSelection === computerSelection){
         return "Tie";
@@ -53,21 +53,19 @@ function playRound(playerSelection, computerSelection){
             return "You lose, Rock beats Scissors";
         }
     }
+    
 }
 
 //Function plays the game
 function game(){
     
     //Plays round 5 times
-      while(round<5) {
-        
-        round++;
-        playRound(playerSelection, computerSelection);
-    }
+    
+    //playRound();
 
     //once 5 rounds have been reached show result
     
-     if(round == 5){
+     if(playerScore || computerScore == 5){
         if(playerScore == computerScore){
             return "Nothing Happens";
         } else if(playerScore>computerScore){
@@ -83,32 +81,46 @@ function game(){
 const rockButton = document.querySelector('#rockButton');
 const paperButton = document.querySelector('#paper');
 const scissorButton = document.querySelector('#scissors');
-const scorePlayer = document.querySelector('#scoreP');
-const scoreComputer = document.querySelector('#scoreC');
+
 
 //const container = document.querySelectorAll('#container');
-
 //event listener function
 rockButton.addEventListener('click', function(){
     playerSelection = ROCK;
     computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection);
-    console.log(playRound);
+    playRound();
+    console.log(playerScore);
+    console.log(computerScore);
+    updateScore();
 });
 
 paperButton.addEventListener('click', function(){
     playerSelection = PAPER;
     computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection);
-    console.log(playRound);
+    playRound();
+    console.log(playerScore);
+    console.log(computerScore);
+    updateScore();
+    
 });
 
 scissorButton.addEventListener('click', function(){
     playerSelection = SCISSORS;
     computerSelection = computerPlay();
-    playRound(playerSelection, computerSelection);
-    console.log(playRound);
+    playRound();
+    console.log(playerScore);
+    console.log(computerScore);
+    updateScore();
 });
+
+function updateScore(){
+    const scorePlay = document.getElementById('playerScore');
+    const scoreComp = document.querySelector('#scoreC');  
+    
+    scorePlay.textContent = '${scoreP}';
+    scoreComp.textContent = '${scoreC}';
+}
+
 
 
 //play the game
