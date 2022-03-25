@@ -89,18 +89,18 @@ rockButton.addEventListener('click', function(){
     playerSelection = ROCK;
     computerSelection = computerPlay();
     playRound();
+    updateScore();
     console.log(playerScore);
     console.log(computerScore);
-    updateScore();
 });
 
 paperButton.addEventListener('click', function(){
     playerSelection = PAPER;
     computerSelection = computerPlay();
     playRound();
+    updateScore();
     console.log(playerScore);
     console.log(computerScore);
-    updateScore();
     
 });
 
@@ -108,17 +108,18 @@ scissorButton.addEventListener('click', function(){
     playerSelection = SCISSORS;
     computerSelection = computerPlay();
     playRound();
+    updateScore()
     console.log(playerScore);
     console.log(computerScore);
-    updateScore();
+    //updateScore();
 });
 
 function updateScore(){
-    const scorePlay = document.getElementById('playerScore');
-    const scoreComp = document.querySelector('#scoreC');  
+    const scorePlay = document.getElementById('scoreP');
+    const scoreComp = document.getElementById('scoreC');  
     
-    scorePlay.textContent = '${scoreP}';
-    scoreComp.textContent = '${scoreC}';
+    scorePlay.textContent = `${playerScore}`;
+    scoreComp.textContent = `${computerScore}`;
 }
 
 
