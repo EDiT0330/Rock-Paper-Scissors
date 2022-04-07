@@ -60,7 +60,7 @@ function game(){
     //once 5 rounds have been reached show result
     
     if(playerScore || computerScore == 5){
-        if(playerScore == computerScore){
+        if(playerScore = computerScore){
             return "Nothing Happens";
         } else if(playerScore>computerScore){
             return "You Win the game";
@@ -128,7 +128,15 @@ function gameResult(){
     }else if(roundWinner == 'computer'){
         gameResult.textContent = `loss`;
     }
+
+    if(playerScore == 5 || computerScore == 5){
+        if (playerScore == computerScore){
+            alert('tie');
+        }else if(playerScore>computerScore){
+            alert('player win');
+        }else{
+            alert('computer win');
+        }
+    }
 }
 
-//play the game
-console.log(game());
